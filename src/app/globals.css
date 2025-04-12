@@ -3,18 +3,25 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: coral;
+  --secondary: seagreen;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #211f27;
     --foreground: #ededed;
+    --primary: lightcoral;
+    --secondary: lightseagreen;
   }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-cutive-mono: var(--font-cutive-mono);

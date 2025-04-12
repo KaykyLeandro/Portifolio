@@ -7,7 +7,7 @@ interface NavbarLinkProps {
 
 export default function NavbarLink(props: NavbarLinkProps) {
     return (
-        <Link href={props.url} className="p-4 flex gap-1 hover:bg-[rgba(128,128,128,0.1)] md:bg-background md:px-5 md:py-2 ">
+        <Link href={props.url} className="p-4 flex gap-1 hover:bg-[rgba(128,128,128,0.1)] lg:bg-background lg:px-5 lg:py-2 cursor-pointer pointer-events-auto">
             {props.children}
         </Link>
     )
