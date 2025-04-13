@@ -4,11 +4,12 @@ import Section from "@/components/Shared/Section";
 import AboutTitle from "./AboutTitle";
 import Paragraph from "@/components/Shared/Paragraph";
 import Expandble from "@/components/Shared/Expandble";
+import { forwardRef } from "react";
 
-export default function About() {
+const About = forwardRef<HTMLElement>((props, ref) => {
 
     return (
-        <Section>
+        <Section ref={ref}>
             <div className="flex flex-col items-center gap-10 mt-[0vh] sm:w-3/4 md:w-1/2 transition-all">
 
                 <AboutTitle />
@@ -37,4 +38,6 @@ export default function About() {
             </div>
         </Section>
     );
-}
+})
+
+export default About;

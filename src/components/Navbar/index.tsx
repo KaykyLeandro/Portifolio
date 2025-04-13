@@ -1,12 +1,19 @@
 'use client'
 
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import NavbarLink from "./NavbarLink";
 import NavbarLinkList from "./NavbarLinkList"
 import NavbarSwitchButton from "./NavbarSwitchButton";
-import { IconHome, IconUser } from "@tabler/icons-react"
 
-export default function Navbar() {
+interface NavbarProps{
+    scrollLinks: {
+        name: string,
+        icon: React.ComponentType,
+        ref: React.RefObject<HTMLElement|null>
+    }[]
+}
+
+export default function Navbar(props: NavbarProps) {
 
     const [hideMenu, setHideMenu] = useState(true);
 
@@ -25,13 +32,12 @@ export default function Navbar() {
             <NavbarSwitchButton hideMenu={hideMenu} onClick={handlwMenuSwitch} />
 
             <NavbarLinkList>
-                <NavbarLink url='/'>
-                    <IconHome /> Home
-                </NavbarLink>
-                <NavbarLink url='/'>
-                    <IconUser /> About
-                </NavbarLink>
-
+                {props.scrollLinks.map((link, index) => (
+                    <NavbarLink ref={link.ref}>
+                        {<link.icon />}
+                        {link.name}
+                    </NavbarLink>
+                ))}
             </NavbarLinkList>
         </nav>
     )
