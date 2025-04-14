@@ -2,22 +2,29 @@ import Title from "@/components/Shared/Title";
 import Section from "@/components/Shared/Section";
 import TechList from "./TechList";
 import Tech from "./Tech";
-import { forwardRef } from "react";
+import TechData from "@/models/TechData";
+import { forwardRef, useEffect, useState } from "react";
 
 const Knowledge = forwardRef<HTMLElement>((props, ref) => {
+
+    const [techList, setTechList] = useState<TechData[]>([])
+
+    useEffect(() => {
+        const FetchTechs = async () => {
+            const jsonResponse = await fetch('/api/techs').then(value => value.json());
+            const response = jsonResponse as TechData[];
+            setTechList(response);
+        }
+        FetchTechs();
+    })
+
     return (
-        <Section ref={ref}>
+        <Section ref={ref} className="bg-gradient-to-br from-[rgba(35,227,241,0.1)] to-[rgba(255,50,200,0.1)] font-quicksand">
             <Title main='Conhecimento' sub="Linguagens de programação, tecnologias e frameworks" />
             <TechList>
-                <Tech name="HTML" description="Cria os elementos na tela." image="/img/tech/js.png" />
-                <Tech name="CSS" description="Define a aparência dos elementos na tela." image="/img/tech/js.png" />
-                <Tech name="Javascript" description="Linguagem de programação frontend." image="/img/tech/js.png" />
-                <Tech name="Typescript" description="Linguagem de programação frontend tipada." image="/img/tech/js.png" />
-                <Tech name="React" description="Biblioteca front-end, focada em SPA." image="/img/tech/js.png" />
-                <Tech name="Next.JS" description="Adiciona funcionalidades novas ao react." image="/img/tech/js.png" />
-                <Tech name="Tailwind" description="Framework CSS. Agiliza a estilização." image="/img/tech/js.png" />
-                <Tech name="SASS" description="Adiciona novas funcionalidades ao CSS" image="/img/tech/js.png" />
-                <Tech name="Git" description="Ferramenta de versionamento de código." image="/img/tech/js.png" />
+                {techList.map((tech, index) => (
+                    <Tech key={index} tech={tech} />
+                ))}
             </TechList>
         </Section>
     )

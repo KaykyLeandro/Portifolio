@@ -13,7 +13,7 @@ export default function Footer() {
             }}
             className="bg-black text-zinc-300 h-40 flex justify-evenly items-center"
         >
-            <Button>Retornar para o topo</Button>
+            <Button className="[&_div]:bg-transparent bg-transparent">Retornar para o topo</Button>
         </footer>
     )
 }

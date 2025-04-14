@@ -2,16 +2,16 @@ import { ButtonHTMLAttributes, Children } from "react"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: React.ReactNode
-    primary?: boolean
+    primary: boolean
 }
 
-export default function Button(props: ButtonProps) {
+export default function Button(props: ButtonProps = {primary:false}) {
 
     const primary = props.primary ?? false;
 
     return (
         <button {...props} className={`
-            p-3 w-fit flex gap-1 font-sans cursor-pointer border-2 rounded-md text-center transition
+            relative p-3 w-fit flex gap-1 cursor-pointer border-2 rounded-md font-bold text-center transition font-quicksand overflow-hidden
             ${primary ?
             `
                 bg-primary [box-shadow:-4px_4px_0_black,-4px_4px_15px_rgba(255,255,255,0.2)] text-background border-transparent 
@@ -19,7 +19,8 @@ export default function Button(props: ButtonProps) {
             `:`      
                 bg-transparent border-[rgba(128,128,128,0.2)] hover:text-secondary hover:border-secondary
             `}  
-        ${primary ? 'bg-primary' : ''}`}>
+        ${props.className ?? ''}`}>
+            <div className={`absolute top-0 left-0 w-full h-full bg-background opacity-50 ${primary ? 'hidden' : ''}`} />
             {props.children ?? ''}
         </button>
     )

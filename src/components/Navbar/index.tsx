@@ -1,15 +1,17 @@
 'use client'
 
 import { ReactElement, useState } from "react";
-import NavbarLink from "./NavbarLink";
+import NavbarInternalLink from "./NavbarInternalLink";
 import NavbarLinkList from "./NavbarLinkList"
+import NavbarLink from "./NavbarLink";
 import NavbarSwitchButton from "./NavbarSwitchButton";
+import { FaLinkedin, FaGithub } from "react-icons/fa6"
 
-interface NavbarProps{
+interface NavbarProps {
     scrollLinks: {
         name: string,
         icon: React.ComponentType,
-        ref: React.RefObject<HTMLElement|null>
+        ref: React.RefObject<HTMLElement | null>
     }[]
 }
 
@@ -17,7 +19,7 @@ export default function Navbar(props: NavbarProps) {
 
     const [hideMenu, setHideMenu] = useState(true);
 
-    function handlwMenuSwitch(){
+    function handlwMenuSwitch() {
         setHideMenu(!hideMenu);
     }
 
@@ -33,11 +35,22 @@ export default function Navbar(props: NavbarProps) {
 
             <NavbarLinkList>
                 {props.scrollLinks.map((link, index) => (
-                    <NavbarLink ref={link.ref}>
+                    <NavbarInternalLink key={index} ref={link.ref}>
                         {<link.icon />}
                         {link.name}
-                    </NavbarLink>
+                    </NavbarInternalLink>
                 ))}
+
+                <NavbarLink url="https://www.linkedin.com/in/kayky-leandro-barbosa-da-silva-445b34345">
+                    <FaLinkedin />
+                    LinkedIn
+                </NavbarLink>
+
+                <NavbarLink url="//https://github.com/KaykyLeandro">
+                    <FaGithub />
+                    GitHub
+                </NavbarLink>
+
             </NavbarLinkList>
         </nav>
     )

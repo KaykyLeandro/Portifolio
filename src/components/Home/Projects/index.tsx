@@ -6,63 +6,40 @@ import ProjectList from "./ProjectList";
 import ProjectPanel from "./ProjectPanel";
 import Project from "./Project";
 import ProjectData from "@/models/ProjectData";
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useEffect } from "react";
+
 
 const Projects = forwardRef<HTMLElement>((props, ref) => {
 
+    const [projectList, setProjectList] = useState<ProjectData[]>([])
     const [currentProject, setCurrentProject] = useState<ProjectData | null>(null);
+
+    useEffect(() => {
+        async function getProjectsData() {
+            const response = await fetch('/api/projects');
+            const projectsJson = await response.json();
+            const list = projectsJson as ProjectData[];
+            setProjectList(list);
+        }
+        getProjectsData();
+    })
 
     const onCloseProjectPanel = () => setCurrentProject(null);
 
     return (
-        <Section ref={ref}>
+        <Section ref={ref} className="bg-gradient-to-bl from-[rgba(255,200,100,0.1)] to-[rgba(200,60,250,0.1)] font-quicksand">
             <Title main='Projetos' sub="Projetos pessoais" />
 
-            <div className="relative">
+            <ProjectList show={currentProject == null}>
 
+                {projectList.map((project, index) => (
+                    <Project key={index} project={project} setProject={setCurrentProject} />
+                ))}
 
-                <ProjectList show={currentProject == null}>
-                    <Project setProject={setCurrentProject} project={{
-                        name: 'Projeto',
-                        description: 'Esse é um projeto de teste, um place holder. Não possui qualquer utilitade e só está aqui até eu chamar um projeto real pelo backend depois.',
-                        mainImage: "/img/projects/test/2.jpg",
-                        images: ["/img/projects/test/1.jpg", "/img/projects/test/2.jpg", "/img/projects/test/3.jpg"],
-                        link: "https://google.com"
-                    }} />
-                    <Project setProject={setCurrentProject} project={{
-                        name: 'Projeto',
-                        description: 'Esse é um projeto de teste, um place holder. Não possui qualquer utilitade e só está aqui até eu chamar um projeto real pelo backend depois.',
-                        mainImage: "/img/projects/test/1.jpg",
-                        images: ["/img/projects/test/1.jpg", "/img/projects/test/2.jpg", "/img/projects/test/3.jpg"],
-                        link: "https://google.com"
-                    }} />
-                    <Project setProject={setCurrentProject} project={{
-                        name: 'Projeto',
-                        description: 'Esse é um projeto de teste, um place holder. Não possui qualquer utilitade e só está aqui até eu chamar um projeto real pelo backend depois.',
-                        mainImage: "/img/projects/test/1.jpg",
-                        images: ["/img/projects/test/1.jpg", "/img/projects/test/2.jpg", "/img/projects/test/3.jpg"],
-                        link: "https://google.com"
-                    }} />
-                    <Project setProject={setCurrentProject} project={{
-                        name: 'Projeto',
-                        description: 'Esse é um projeto de teste, um place holder. Não possui qualquer utilitade e só está aqui até eu chamar um projeto real pelo backend depois.',
-                        mainImage: "/img/projects/test/1.jpg",
-                        images: ["/img/projects/test/1.jpg", "/img/projects/test/2.jpg", "/img/projects/test/3.jpg"],
-                        link: "https://google.com"
-                    }} />
-                    <Project setProject={setCurrentProject} project={{
-                        name: 'Projeto',
-                        description: 'Esse é um projeto de teste, um place holder. Não possui qualquer utilitade e só está aqui até eu chamar um projeto real pelo backend depois.',
-                        mainImage: "/img/projects/test/1.jpg",
-                        images: ["/img/projects/test/1.jpg", "/img/projects/test/2.jpg", "/img/projects/test/3.jpg"],
-                        link: "https://google.com"
-                    }} />
-                    
-                </ProjectList>
+            </ProjectList>
 
-                {currentProject ? <ProjectPanel project={currentProject} onClose={onCloseProjectPanel} /> : ''}
+            {currentProject ? <ProjectPanel project={currentProject} onClose={onCloseProjectPanel} /> : ''}
 
-            </div>
         </Section>
     )
 });

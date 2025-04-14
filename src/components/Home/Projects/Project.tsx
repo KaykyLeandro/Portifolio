@@ -16,8 +16,8 @@ export default function Project(props: ProjectProps) {
 
             <button onClick={() => props.setProject(props.project)} className={`
             absolute bottom-0 left-0 w-full h-full text-center z-1
-            bg-transparent text-background text-3xl font-sans  p-4 cursor-pointer
-            transition hover:bg-[rgba(255,255,255,0.4)] peer flex items-end justify-center [text-shadow:_0_0_10px_black]
+            bg-transparent text-background text-3xl font-sans  p-4 cursor-pointer bg-gradient-to-tl to-primary opacity-0
+            transition duration-700 hover:opacity-50 peer flex items-end justify-center [text-shadow:_0_0_10px_black]
             `}>
 
             </button>
@@ -27,7 +27,7 @@ export default function Project(props: ProjectProps) {
             </h3>
             <Image
                 src={props.project.mainImage}
-                height={100} width={100}
+                height={1000} width={1000}
                 alt={props.project.name.concat(", print")}
                 className="w-full h-full pointer-events-none peer-hover:scale-120 transition duration-5000 z-0 object-cover" 
             />
