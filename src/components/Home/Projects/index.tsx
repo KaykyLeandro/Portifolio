@@ -27,7 +27,7 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
     const onCloseProjectPanel = () => setCurrentProject(null);
 
     return (
-        <Section ref={ref} className="bg-gradient-to-bl from-[rgba(255,200,100,0.1)] to-[rgba(200,60,250,0.1)] font-quicksand">
+        <Section ref={ref} className="bg-ease-gradient-projects font-quicksand">
             <Title main='Projetos' sub="Projetos pessoais" />
 
             <ProjectList show={currentProject == null}>

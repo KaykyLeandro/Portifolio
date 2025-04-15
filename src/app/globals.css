@@ -36,3 +36,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities{
+  .bg-ease-gradient-about{
+    background-image: url("/img/bgnoisetexture.png"), linear-gradient(45deg,rgba(50, 173, 255, 0.2), var(--background), rgba(255, 150, 30, 0.2))
+  }
+
+  .bg-ease-gradient-knowledge{
+    background-image: url("/img/bgnoisetexture.png"), linear-gradient(60deg, rgba(255, 148, 171, 0.2), var(--background), rgba(255,50,200,0.2))
+  }
+  
+  .bg-ease-gradient-projects{
+    background-image: url("/img/bgnoisetexture.png"), linear-gradient(85deg, rgba(255, 50, 187, 0.2), var(--background), rgba(35, 241, 196, 0.2))
+  }
+}

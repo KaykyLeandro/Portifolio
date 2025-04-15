@@ -9,7 +9,7 @@ import { forwardRef } from "react";
 const About = forwardRef<HTMLElement>((props, ref) => {
 
     return (
-        <Section ref={ref} className="bg-gradient-to-tl from-[rgba(200,100,250,0.05)] to-[rgba(30,255,200,0.2)] font-quicksand">
+        <Section ref={ref} className="bg-gradient-to-tl font-quicksand bg-ease-gradient-about">
             <div className="flex flex-col items-center gap-10 mt-[0vh] sm:w-3/4 md:w-1/2 transition-all">
 
                 <AboutTitle />

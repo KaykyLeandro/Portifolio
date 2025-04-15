@@ -19,7 +19,7 @@ const Knowledge = forwardRef<HTMLElement>((props, ref) => {
     })
 
     return (
-        <Section ref={ref} className="bg-gradient-to-br from-[rgba(35,227,241,0.1)] to-[rgba(255,50,200,0.1)] font-quicksand">
+        <Section ref={ref} className="bg-ease-gradient-knowledge font-quicksand">
             <Title main='Conhecimento' sub="Linguagens de programação, tecnologias e frameworks" />
             <TechList>
                 {techList.map((tech, index) => (

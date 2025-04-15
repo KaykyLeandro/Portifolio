@@ -46,7 +46,7 @@ export default function Navbar(props: NavbarProps) {
                     LinkedIn
                 </NavbarLink>
 
-                <NavbarLink url="//https://github.com/KaykyLeandro">
+                <NavbarLink url="https://github.com/KaykyLeandro">
                     <FaGithub />
                     GitHub
                 </NavbarLink>
