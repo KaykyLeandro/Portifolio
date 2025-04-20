@@ -3,7 +3,7 @@ import Section from "@/components/Shared/Section";
 import TechList from "./TechList";
 import Tech from "./Tech";
 import TechData from "@/models/TechData";
-import { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 const Knowledge = forwardRef<HTMLElement>((props, ref) => {
 
@@ -29,5 +29,7 @@ const Knowledge = forwardRef<HTMLElement>((props, ref) => {
         </Section>
     )
 })
+
+Knowledge.displayName = "Knowledge";
 
 export default Knowledge;

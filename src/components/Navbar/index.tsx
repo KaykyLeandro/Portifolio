@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 import NavbarInternalLink from "./NavbarInternalLink";
 import NavbarLinkList from "./NavbarLinkList"
 import NavbarLink from "./NavbarLink";

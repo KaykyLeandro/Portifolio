@@ -1,4 +1,4 @@
-import { IconHome, IconUser, IconMenu, IconArrowLeft } from "@tabler/icons-react"
+import { IconMenu, IconArrowLeft } from "@tabler/icons-react"
 
 interface NavbarSwitchButtonProps{
     hideMenu: boolean, 

@@ -18,7 +18,7 @@ export default function Expandble(props: { children: React.ReactNode }) {
                 {props.children}
             </div>
 
-            <Button primary={true} onClick={toggle} className="text-xl flex items-center gap-2 cursor-pointer self-center">
+            <Button primary onClick={toggle} className="text-xl flex items-center gap-2 cursor-pointer self-center">
                 {showContent ? <><IconMinus /> Mostrar Menos</> : <><IconPlus /> Mostrar Mais</>}
             </Button>
         </div>

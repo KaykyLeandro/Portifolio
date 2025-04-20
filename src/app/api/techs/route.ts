@@ -1,6 +1,5 @@
-import { NextRequest } from "next/server";
 import techList from "@/static/Tech";
 
-export async function GET(request: NextRequest){
+export async function GET(){
     return Response.json(techList);
 }

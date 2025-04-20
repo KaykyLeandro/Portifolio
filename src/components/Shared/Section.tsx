@@ -1,4 +1,4 @@
-import { ForwardedRef, Ref, forwardRef } from "react";
+import { forwardRef } from "react";
 
 interface SectionProps{
     className?: string
@@ -16,5 +16,7 @@ const Section = forwardRef<HTMLElement, SectionProps>((props, ref) =>{
         </section>
     )
 })
+
+Section.displayName = "Section"
 
 export default Section;

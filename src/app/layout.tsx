@@ -18,9 +18,10 @@ const cutiveMono = Cutive_Mono({
   subsets: ['latin'],
 });
 
-export const quicksand = Quicksand({
+const quicksand = Quicksand({
   variable: '--font-quicksand',
-  weight: '400'
+  weight: '400',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {

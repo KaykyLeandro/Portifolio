@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 interface NavbarInternalLinkProps {
     children?: React.ReactNode
     ref: React.RefObject<HTMLElement|null>
