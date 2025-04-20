@@ -17,14 +17,14 @@ export default function ProjectPanel(props: ProjectPanelProps) {
     const [currentImage, setCurrentImage] = useState(0);
 
     return (
-        <div className="w-full h-full absolute top-0 left-0 flex flex-row justify-center items-center">
+        <div className="w-full h-full relative top-0 left-0 flex flex-row justify-center items-center z-1 md:absolute">
 
             <div className={`
-            flex flex-col items-center gap-10 top-0 w-full h-fit left-0 bg-background p-3 rounded lg:px-20 lg:py-10 lg:w-4/5 [box-shadow:0_0_50px_rgba(0,0,0,0.9)] 
+            flex flex-col items-center gap-10 w-full h-fit left-0 bg-background p-3 rounded lg:px-20 lg:py-10 lg:w-4/5 [box-shadow:0_0_50px_rgba(0,0,0,0.9)] 
             `}>
                 <Button primary={false} className="" onClick={props.onClose}>
                     <IconX />
-                    Fechar
+                    Fechar Projeto
                 </Button>
 
                 <div className="flex flex-col items-center gap-10 w-full md:flex-row">

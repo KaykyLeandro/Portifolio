@@ -30,6 +30,9 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
         <Section ref={ref} className="bg-ease-gradient-projects font-quicksand">
             <Title main='Projetos' sub="Projetos pessoais" />
 
+            {currentProject ? <ProjectPanel project={currentProject} onClose={onCloseProjectPanel} /> : ''}
+            
+
             <ProjectList show={currentProject == null}>
 
                 {projectList.map((project, index) => (
@@ -38,7 +41,6 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
 
             </ProjectList>
 
-            {currentProject ? <ProjectPanel project={currentProject} onClose={onCloseProjectPanel} /> : ''}
 
         </Section>
     )
